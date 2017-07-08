@@ -1,7 +1,6 @@
 ## Put comments here that give an overall description of what your functions do
 # Example: Caching the Mean of a Vectorless 
 # In this example we introduce the <<- operator which can be used to assign a value to an object in an environment that is different from the current environment. Below are two functions that are used to create a special object that stores a numeric vector and cache's its mean.
-# 
 # The first function, makeVector creates a special "vector", which is really a list containing a function to
 # 
 # set the value of the vector
@@ -52,11 +51,15 @@
 ## Write a short comment describing this function
 # Write the following functions:
 #   
-# makeCacheMatrix: This function creates a special "matrix" object that can cache its 
-# inverse.
-# cacheSolve: This function computes the inverse of the special "matrix" returned by 
-# makeCacheMatrix above. If the inverse has already been calculated (and the matrix has 
-# not changed), then the cachesolve should retrieve the inverse from the cache.
+# makeCacheMatrix: This function computes the inverse of the matrix returned by 
+# makeCacheMatrix.
+# If the inverse has not been solved, then the cacheSolve
+# function will compute the matrix's inverse.
+# If the inverse has already been solved, then the cacheSolve 
+# function should retrieve the inverse from the cache.
+# function retrieves the inverse from the cache and prints it
+# to the console.
+# This function only works for square invertible matrices.
 
 makeCacheMatrix <- function(x = matrix()) {
   matrixInv <- NULL
@@ -75,7 +78,17 @@ makeCacheMatrix <- function(x = matrix()) {
   )
 }
 
-## Write a short comment describing this function
+# cacheSolve: This function computes the inverse of the special "matrix" returned by 
+# makeCacheMatrix above. If the inverse has already been calculated (and the matrix has 
+# not changed), then the cachesolve should retrieve the inverse from the cache.
+# If the inverse has not been solved, then the cacheSolve
+# function will compute the matrix's inverse.
+# If the inverse has already been solved, then the cacheSolve 
+# function should retrieve the inverse from the cache.
+# function retrieves the inverse from the cache and prints it
+# to the console.
+# This function only works for square invertible matrices.
+  
 cacheSolve <- function(x = matrix(), ...) {
   ## Return a matrix that is the inverse of 'x'
   invX <- x$getInverse()
